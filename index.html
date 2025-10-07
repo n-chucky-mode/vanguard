@@ -18,11 +18,10 @@
 <!-- WRAP CONTENT IN VALIDATED, SEMANTIC HTML5 (SEE HINTS FOLDER LINKED TO IN THE CANVAS INSTRUCTIONS)-->
     <header>
         <div class="container">
-            <a href="#" class="brand">
-                <span class="brand-name">Vanguard</span>
-            </a>
-            <nav aria-label="Main">
-                <ul class="main-nav">
+            <h1>Vanguard</h1>
+            
+            <nav>
+                <ul>
                     <li><a href="#innovation">About</a></li>
                     <li><a href="#offerings">Services</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -31,71 +30,76 @@
         </div>
     </header>
 
-    
+<main>   
         <!--*******Intro Section**********-->
-        <section id="Innovation" class="hero">
-            <div class="container-for-hero-content">
+        <section id="innovation">
+            <div class="container">
                 <h1>Innovation &amp; Investment</h1>
         
                 <p>We empower businesses to lead the future with high-impact strategies, market intelligence, and financial solutions that drive success.</p>
-                <a class="primary-btn" href="#contact">Request a Consultation</a>
+                <p><a href="#contact">Request a Consultation</a></p>
             </div>
         </section>
         <!--*******Our expertise Section**********-->
-        <main id="main-content">
-            <section class="container-intro">
+        
+            <section id="about">
+                <div class="container">
                 <h2>Our Expertise. Your Edge.</h2>
                 <p>We redefine success by leveraging AI-driven analytics, market intelligence, and high-yield investment strategies to propel businesses 
                     forward. Whether you're looking to scale, optimize, or dominate, our strategic expertise delivers results.</p>
+                </div>
+
             </section>
         <!--*******What we offer Section**********-->
-        <section id="offerings" class="offerings-container">
+        <section id="offerings">
+            <div class="container">
             <h2>What We Offer</h2>
 
-            <ul class="cards">
-                <li class="card">
+            <ul>
+                <li>
                     <h3>Strategic Growth Consulting</h3>
                     <p>Unlock new revenue streams and optimize market expansion strategies.</p>
                 </li>
             
-                <li class="card">
+                <li>
                     <h3>High-Impact Investment Solutions</h3>
                     <p>Maximize returns with data-driven portfolio management.</p>
                 </li>
 
-                <li class="card">
+                <li>
                     <h3>Business Acceleration & Mergers</h3>
                     <p>Identify opportunities for rapid growth and high-value acquisitions.</p>
                 </li>
 
-                <li class="card">
+                <li>
                     <h3>Digital Transformation</h3>
                     <p>Stay at the forefront of industry advancements with AI, blockchain, and automation.</p>
                 </li>
 
-                <li class="card">
+                <li>
                     <h3>Exclusive Executive Advisory Services</h3>
                     <p>Personalized insights and leadership support for C-suite executives and high-net-worth investors.</p>
                 </li>
 
-                <li class="card">
+                <li>
                     <h3>Corporate Innovation</h3>
                     <p>Strategic implementation of new ideas, technologies, and processes to drive business growth, enhance competitive advantage, 
                     and adapt to evolving market demands.</p>
                 </li>
 
             </ul>
+            </div>
         </section>
         <!--******* Results Section**********-->
-        <section class="results">
+        <section id="results">
             <div class="container">
                 <h2>Proven Results</h2>
                 <p>Our data-driven strategies have delivered outstanding ROI, leading to significant revenue growth.</p>
                 
-                <div class="results-grid">
+                <div class="results-container">
                     <!--Profits table-->
-                    <div class="results-table" role="region" aria-labelledby="profits-heading">
-                <h3 id="profits-heading">Profits</h3>
+                    <div class="results-table">
+                <h3>Profits</h3>
                 <table>
                     <thead>
                         <tr>
@@ -117,7 +121,7 @@
                 
             <div>
                 
-        
+                <div class="bar-chart">
 <!-- CODE PROVIDED FOR YOU, NOTHING TO DO FOR THE BAR CHART IN THE HTML-->
                     <div  id="bar-chart">
                         <h3>growth</h3>
@@ -132,45 +136,45 @@
             </div>
         </section>
 
-
+<!--^^^^^^^^^^^^^^^^^Dont touch above code dont break its provided ^^^^^^^^^^^^^^^^^^^^^-->
         <!--Contact us section-->
-        <section id="Contact" class="Contact">
+        <section id="contact">
             <div class="container">
                 <h2>Contact Us</h2>
                 <p>Want to take your business to the next level? Get in touch with our elite team today.</p>
-            <form action="#" method="post" nonvalidate>
-                <div class="form-grid">
-                    <div class="field">
+            <form action="#" method="post" novalidate>
+                
+                    
                         <label for="fullName">Full Name</label>
                         <input id="fullName" name="fullName" type="text" autocomplete="name" />
-                    </div>
+                
 
-                    <div class="field">
+                    
                         <label for="email">Email Address</label>
                         <input id="email" name="email" autocomplete="email" />
-                    </div>
+                    
 
-                    <div class="field">
+                    
                         <label for="Company">Company Name</label>
                         <input id="Company" name="Company" autocomplete="organization" />
-                    </div>
+                    
 
-                    <div class="field">
+                    
                         <label for="industry">Industry</label>
                         <input id="industry" name="industry" type="text" />
-                    </div>
+                
 
-                    <div class="full-field">
+                    
                         <label for="message">How can we help you?</label>
                         <textarea id="message" name="message" rows="5"></textarea>
-                    </div>
+                    
 
-                    <div class="actions">
-                        <button type="submit" class="primary-btn">Submit</button>
-                    </div>
-                </div>
+                        <p>
+                        <button type="submit">Submit</button>
+                        </p>
+
             </form>
-        </div>
+            </div>
         </section>
 
 </main>       
