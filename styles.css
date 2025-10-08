@@ -130,6 +130,7 @@ header nav a:focus{
     color: var(--white);
 }
 
+
 /* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
 body{
     min-width: 400px;
@@ -163,15 +164,10 @@ body{
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
 
 }
-#blur p, #blur h1{
-    padding: 10px;
-    backdrop-filter: blur(50px);
-}
-/*offerings*/
+
+/*offerings what we offer*/ 
 #offerings{
-    color: var(--red);
     font-size: 100%;
-    font-weight: bolder;
 }
 #offerings ul{
     display: grid;
@@ -182,8 +178,52 @@ body{
 }
 #offerings li{
     background: var(--blue);
+    color: var(--white);
+    padding: 1rem;
+    border-radius: 16px;
+    /*box-shadow: 0 6px 18px rgba(0, 0, 0, 0.85); Theres actually no shadow my eyes just tired leave out*/
 }
+#offerings li h3{
+    color: var(--white);
+    font-weight: bold;
+    /* add top margin*/
+    margin-top: .45rem;
+    margin-bottom: 0.55rem;/*needs more space*/
 
+}
+#offerings h2{
+    color: var(--black);
+    font-weight: bold;
+}
+#offerings li p{
+    color: var(--white);
+    margin: 0;
+}
+/*results table*/
+.results-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 1rem;
+}
+.results-table h3{
+    color: var(--red);
+    font-weight: bold;
+    margin-bottom: 0.6rem;
+}
+/*table styling*/
+#results table{
+    width: 100%;
+    background: var(--black);
+    color: var(--white);
+    overflow: hidden;
+    text-align: center;
+    /*border: 5px solid rgb(140, 140, 140); doesnt have outside border not using this*/
+}
+#results td, th{
+    border: 2px solid var(--charcoal);
+    padding: 1rem;
+}/*take a break here*/
 /* THIS ONE IS DONE FOR YOU */
 #bar-chart {
     display: grid;
