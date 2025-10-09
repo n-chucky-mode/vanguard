@@ -77,16 +77,33 @@ h3{font-size: 1.05rem; }
 section{ padding-block: 2.25rem;}
 
 /***Header might replace this***/
-/*header{ background-color: var(--black); color: var(--blue); line-height: 2em; }  blue top bar */
+header{ background-color: var(--black); color: var(--blue); line-height: 2em; } 
 header .container{
     display: grid;/*grid for easy flow*/
-    grid-auto-columns: 1fr;/*mobile: stacked brand + nav */
-    align-items: center;
+    grid-auto-columns: 1fr auto;/*mobile: stacked brand + nav */
+    align-items: start;
     gap: .5rem;/*space between brand and navs*/
-    padding-block: .75rem;/*header height*/
+    padding-block: .5rem 2rem;/*header height*/
  }
+ header h1{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    color: var(--blue);
+    font-weight: bold;
+
+ }
+ header h1::before{
+    content: " ";
+    width: 2rem;
+    height: 2rem;
+    background: url('images/vanguard-logo.svg') no-repeat center/contain;
+    display: inline-block;
+ }
+
     
-header nav ul{display: flex; gap: 1rem; flex-wrap: wrap; text-align: start;}
+header nav ul{display: flex; gap: 1rem; flex-wrap: wrap; text-align: start; color: var(--blue);}
 header nav a:hover,
 header nav a:focus{
     display: inline-block; 
@@ -158,13 +175,13 @@ body{
 
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
 #innovation h1::before {
-    content: "";
+    /*content: "";
     position: relative;
     display: inline-block;
     left:-.5rem;
     width: 3.75rem;
     height: 3.75rem;
-    background: url('images/vanguard-logo.svg') no-repeat center/contain;
+    background: url('images/vanguard-logo.svg') no-repeat center/contain; sorry this is messing up my results and my only solution is to get rid of it*/
 
 }
 
@@ -205,10 +222,9 @@ body{
 /*results table*/
 .results-container{
     display: grid;
-    background-color: var(--blue);
     grid-template-columns: 1fr;
     gap: 1.25rem;
-    margin-top: 1rem;
+    
 }
 .results-table h3{
     color: var(--white);
@@ -222,19 +238,31 @@ body{
     color: var(--white);
     overflow: hidden;
     text-align: center;
+    padding-left: 1rem;
     /*border: 5px solid rgb(140, 140, 140); doesnt have outside border not using this*/
 }
 #results td, th{
     border: 2px solid var(--charcoal);
     padding: 1rem;
 }
-#results h2{
+#results h2, h3{
     color: var(--white);
     font-weight: bold;
+    padding: 1rem;
 }/*take a break here*/
 #results p{
     color: var(--white);
 }
+#results{
+    background-color: var(--blue);
+}
+#footer{
+    margin-top: 0;
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+}
+
 /* THIS ONE IS DONE FOR YOU */
 #bar-chart {
     display: grid;
@@ -280,7 +308,78 @@ body{
 .bar {
     animation: stepUp 1s ease-in-out forwards;
 }
+#contact .container-container,
+#contact .container
+{
+    padding: 0;
+    margin: 0;
+   
+}
+#contact{
+    background: var(--black);
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+}
+#contact h2{
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--white);
+}
+#contact form{
+    display: grid;
+    grid-template-columns: (2, 1fr);
+    margin-top: 1rem;
+}
+#contact form p{
+    margin-bottom: 0;
+}
+#contact label{
+    font-weight: bold;
+    color: var(--white);
 
+}
+#contact input{
+    
+    width: 100%;
+    background: var(--white);
+    border-color: var(--blue);
+    height: 2rem;
+}
+#contact textarea{
+    height: 5rem;
+    width: 100%;
+    background: var(--white);
+    border-color: var(--blue);
+}
+ 
+#contact label[for=fullName]{ grid-column: 1; grid-row: 1;}
+#fullName{grid-column: 1; grid-row: 2;}
+
+/*right column email*/
+#contact label[for=email]{ grid-column: 2; grid-row: 1;}
+#email{grid-column: 2; grid-row: 2;}
+
+/**/
+#contact label[for=company]{ grid-column: 2; grid-row: 3;}
+#company{grid-column: 3; grid-row: 4;}
+
+#contact label[for=industry]{ grid-column: 2; grid-row: 3;}
+#industry{grid-column: 2; grid-row: 4;}
+
+/*message span both cols*/
+#contact label[for=message]{ grid-column: 1; grid-row: 5;}
+#message{grid-column: 1; grid-row: 6;}
+
+/*submit row*/
+
+#contact form button{
+    background: var(--blue);
+    color: var(--white);
+    width: 100%;
+    border-radius: 5px;
+    height: 2rem;
+}
 
 /* MEDIA QUERIES (MEDIUM) */ 
 @media(min-width: 800px) {
@@ -298,17 +397,24 @@ body{
         grid-template-columns: 1fr 1fr;
     }
     .results-container {
-        flex-direction: row;
-        justify-content: space-between;
+        grid-template-columns: 1fr 1fr;/*two equal columns for tablet view*/
+        align-items: start;
     }
-    .results-table {
-        width: 50%;
+    .results-table, .bar-chart{
+        width: auto;
     }
-    .bar-chart {
-        width: 50%;
+    #contact form{
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: auto;
+        column-gap: 1.25rem;
+        row-gap: 0.75rem;
     }
+    #contact form p{
+    grid-column: 2;
+    justify-self: stretch;
+    align-self: start;
+    margin: 0;}
 
-}
 /* MEDIA QUERIES (LARGE) */
 @media(min-width: 1024px){
 
