@@ -67,6 +67,9 @@ table {
 
 /* GLOBAL STYLES (MOBILE FIRST (SMALL) */
 
+
+
+
 /*typography*/
 h1, h2, h3{ font-family: (var(--font));}
 h1{font-size: clamp(1.5rem, 4.5vw, 2.25rem);}
@@ -84,6 +87,7 @@ header .container{
     align-items: start;
     gap: .5rem;/*space between brand and navs*/
     padding-block: .5rem 2rem;/*header height*/
+    
  }
  header h1{
     display: inline-flex;
@@ -113,7 +117,12 @@ header nav a:focus{
     text-transform: uppercase; 
     text-decoration: none;
     opacity: .95;}/*nav link style*/
+header nav li a{
+    color: var(--blue);
+    font-weight: bold;
+    text-decoration: none;
     
+} 
 /*end of header*/
 #innovation{
     color: var(--white);
@@ -141,6 +150,7 @@ header nav a:focus{
     border-radius: 10px;
     font-weight: bold;
 }
+
 #about p{
     max-width: 70ch;
     margin-top: 0.45rem;/*play around with this space its not enough*/
@@ -171,7 +181,9 @@ body{
     text-align: center;
     padding: 1rem;
     overflow: hidden;
+    box-shadow: inset 0 50px 8px -40px var(--blue);
 }
+
 
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
 #innovation h1::before {
@@ -243,8 +255,13 @@ body{
 }
 #results td, th{
     border: 2px solid var(--charcoal);
-    padding: 1rem;
-}
+    padding: 1rem;}
+
+    
+.results-table tr:nth-child(odd)  { background: var(--black); }   /* first, third, ... */
+.results-table tr:nth-child(even) { background: var(--charcoal); } 
+      
+
 #results h2, h3{
     color: var(--white);
     font-weight: bold;
@@ -261,6 +278,7 @@ body{
     background-color: var(--black);
     color: var(--white);
     text-align: center;
+    padding: 2.5rem;
 }
 
 /* THIS ONE IS DONE FOR YOU */
@@ -308,10 +326,10 @@ body{
 .bar {
     animation: stepUp 1s ease-in-out forwards;
 }
-#contact .container-container,
+
 #contact .container
 {
-    padding: 0;
+    padding: 2.5rem;
     margin: 0;
    
 }
@@ -323,12 +341,16 @@ body{
 }
 #contact h2{
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+#contact p{
     color: var(--white);
 }
 #contact form{
     display: grid;
-    grid-template-columns: (2, 1fr);
+    grid-template-columns: 1fr;
+    gap: 1rem;
     margin-top: 1rem;
 }
 #contact form p{
@@ -346,45 +368,34 @@ body{
     border-color: var(--blue);
     height: 2rem;
 }
-#contact textarea{
-    height: 5rem;
+#contact input, #contact textarea{
     width: 100%;
     background: var(--white);
     border-color: var(--blue);
+    padding: .75rem .9rem;
+    min-height: 48px;
+    box-sizing: border-box;
+}
+#contact textarea{
+    min-height: 160px;
 }
  
-#contact label[for=fullName]{ grid-column: 1; grid-row: 1;}
-#fullName{grid-column: 1; grid-row: 2;}
 
-/*right column email*/
-#contact label[for=email]{ grid-column: 2; grid-row: 1;}
-#email{grid-column: 2; grid-row: 2;}
-
-/**/
-#contact label[for=company]{ grid-column: 2; grid-row: 3;}
-#company{grid-column: 3; grid-row: 4;}
-
-#contact label[for=industry]{ grid-column: 2; grid-row: 3;}
-#industry{grid-column: 2; grid-row: 4;}
-
-/*message span both cols*/
-#contact label[for=message]{ grid-column: 1; grid-row: 5;}
-#message{grid-column: 1; grid-row: 6;}
 
 /*submit row*/
 
-#contact form button{
-    background: var(--blue);
-    color: var(--white);
-    width: 100%;
-    border-radius: 5px;
-    height: 2rem;
-}
+
+    
+#contact form{
+    grid-template-columns: 1fr;
+    column-gap: 1.25rem;
+    row-gap: .75rem;
+    }
 
 /* MEDIA QUERIES (MEDIUM) */ 
 @media(min-width: 800px) {
     /*header: brand left nav right*/
-    header .container{
+header .container{
         grid-template-columns: 1fr auto;
     }
     header nav{
@@ -403,19 +414,74 @@ body{
     .results-table, .bar-chart{
         width: auto;
     }
-    #contact form{
-        grid-template-columns: 1fr 1fr;
-        grid-auto-rows: auto;
-        column-gap: 1.25rem;
-        row-gap: 0.75rem;
-    }
-    #contact form p{
-    grid-column: 2;
-    justify-self: stretch;
-    align-self: start;
-    margin: 0;}
 
+/* Mobile: 1 column (clean base) */
+#contact form{
+    display: grid;
+    grid-template-columns: 1fr;     /* one column on small screens */
+    gap: 1rem;
+  }
+
+  @media (min-width: 400px){
+    #contact form button{
+        background: var(--red);
+        color: var(--white);
+        width: 100%;
+        border-radius: 2rem;
+        height: 2.5rem;
+        font-weight: bold;
+    }
+  }
+  
+  /* ≥800px: 2 columns with labels stacked above their inputs */
+  @media (min-width: 800px){
+    #contact form{
+      grid-template-columns: 1fr 1fr;   /* two equal columns */
+      grid-auto-rows: auto;
+      column-gap: 1.25rem;
+      row-gap: .75rem;
+    }
+  
+    /* Row 1 (labels) + Row 2 (inputs) — left column = Full Name */
+    #contact label[for="fullName"]{ grid-column: 1; grid-row: 1;}
+    #fullName{grid-column: 1; grid-row: 2;}
+  
+    /* Right column = Email */
+    #contact label[for="email"]{ grid-column: 2; grid-row: 1;}
+    #email{ grid-column: 2; grid-row: 2; }
+  
+    /* Row 3 + 4 — left = Company, right = Industry */
+    #contact label[for="Company"]{ grid-column: 1; grid-row: 3;}
+    #Company{ grid-column: 1; grid-row: 4; }
+  
+    #contact label[for="industry"]{ grid-column: 2; grid-row: 3;}
+    #industry{ grid-column: 2; grid-row: 4; }
+  
+    /* Message spans across both columns */
+    #contact label[for="message"]{ grid-column: 1; grid-row: 5; }
+    #message{ grid-column: 1; grid-row: 6; }
+  
+    /* Submit row spans both columns */
+    #contact form p{ grid-column: 2; grid-row: 6;}
+  }
+  #contact form button{
+    background: var(--blue);
+    width: 100%;
+    color: var(--white);
+    border-radius: 2rem;
+    height: 2.5rem;
+    font-weight: bold;
+}
+  
 /* MEDIA QUERIES (LARGE) */
 @media(min-width: 1024px){
+    #contact form button{
+        background: var(--blue);
+        color: var(--white);
+        width: 100%;
+        border-radius: 2rem;
+        height: 2.5rem;
+        font-weight: bold;
+    }
 
 }
